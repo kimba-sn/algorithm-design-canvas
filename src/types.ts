@@ -1,4 +1,13 @@
-import { CanvasPublic as Canvas } from './client/models';
+export type Canvas = {
+  problem_name: string
+  problem_url?: string | null
+  ideas?: string | null
+  constraints?: string | null
+  test_cases?: string | null
+  code?: string | null
+  id: string
+  owner_id: string
+}
 
 export const emptyCanvas: Canvas = {
     id: '',
@@ -10,3 +19,4 @@ export const emptyCanvas: Canvas = {
     code: '',
     owner_id: ''
 };
+

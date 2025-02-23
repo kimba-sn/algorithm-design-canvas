@@ -26,7 +26,7 @@ export const Canvas = () => {
         }));
     };
 
-    const editorFields = [
+    const editorFields: { name: keyof Canvas, label: string }[] = [
         { name: 'constraints', label: 'Constraints' },
         { name: 'ideas', label: 'Ideas' },
         { name: 'test_cases', label: 'Test Cases' }
@@ -42,7 +42,7 @@ export const Canvas = () => {
                         {editorFields.map(field => (
                             <TextAreaEditor
                                 key={field.name}
-                                value={content[field.name]}
+                                value={content[field.name] || ''}
                                 onChange={(e) => handleChange(field.name, e.target.value)}
                                 fieldName={field.label}
                             />
@@ -54,7 +54,7 @@ export const Canvas = () => {
                 {/* Code Editor */}
                 <div className="col-span-2 overflow-y-auto">
                     <CodeEditor
-                        value={content.code}
+                        value={content.code || ''}
                         onChange={(e) => handleChange('code', e.target.value)}
                     />
                 </div>

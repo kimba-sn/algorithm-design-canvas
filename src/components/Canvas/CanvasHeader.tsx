@@ -1,6 +1,10 @@
-import { CanvasPublic } from '../../client/models'
+import { Canvas } from '../../types';
 
-export const CanvasHeader = ( selectedCanvas: CanvasPublic) => {
+interface CanvasHeaderProps {
+    selectedCanvas: Canvas;
+}
+
+export const CanvasHeader = ({ selectedCanvas}: CanvasHeaderProps) => {
     return (
         <div className="border-b border-gray-200">
             <div className="flex justify-between items-center bg-white px-4 py-2">
@@ -8,7 +12,7 @@ export const CanvasHeader = ( selectedCanvas: CanvasPublic) => {
                     The Algorithm Design Canvas
                 </h1>
                 <a
-                    href={selectedCanvas?.problem_url}
+                    href={selectedCanvas?.problem_url || '#'}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:text-blue-700"
