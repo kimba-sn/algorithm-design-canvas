@@ -1,50 +1,29 @@
-# React + TypeScript + Vite
+# Algorithm Ddesign Canvas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Algorithm Design Canvas is an open-source platform that implement the described canvas from [hiredintech](https://www.hiredintech.com/algorithms/algorithm-design-canvas/what-is-the-canvas/). The canvas transforms algorithm design from a mental process into a structured, visual workspace. This app combines the systematic approach of the Algorithm Design Canvas with modern web technologies to help developers, students, and interviewees better plan, document, and share their algorithmic solutions.
 
-Currently, two official plugins are available:
+You can access the application here: https://algorithm-design-canvas.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Key Features
+- 📝 Interactive Algorithm Design Canvas
+- 💾 Auto-saving with offline support
+- 🔄 Real-time synchronization
+- 👥 Multi-user collaboration (coming soon)
+- 📱 Responsive design for desktop and mobile
+- 🌐 Works offline with local storage
+- 🔒 Secure user authentication
 
-## Expanding the ESLint configuration
+### Tech Stack
+- Frontend: React with Tailwind CSS
+- Backend: FastAPI
+- Database: SQLAlchemy with SQLite/PostgreSQL
+- Authentication: JWT
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Getting Started
+Coming soon...
 
-- Configure the top-level `parserOptions` property like this:
+### Contributing
+Coming soon...
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### License
+MIT License
