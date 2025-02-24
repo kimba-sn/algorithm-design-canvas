@@ -38,7 +38,7 @@ export const Canvas = () => {
             <div className="grid grid-cols-3 flex-1 h-[calc(100vh-64px)] overflow-hidden">
                 {/* First column taking 1/3 of space */}
                 <div className="col-span-1 overflow-y-auto">
-                    <div className="grid grid-rows-3 h-full gap-1">
+                    <div className="grid grid-rows-3 h-full">
                         {editorFields.map(field => (
                             <TextAreaEditor
                                 key={field.name}
@@ -52,10 +52,9 @@ export const Canvas = () => {
 
                 {/* Second column taking 2/3 of space */}
                 {/* Code Editor */}
-                <div className="col-span-2 overflow-y-auto">
+                <div className="col-span-2 h-full overflow-y-auto">
                     <CodeEditor
                         value={content.code || ''}
-                        onChange={(e) => handleChange('code', e.target.value)}
                     />
                 </div>
 
