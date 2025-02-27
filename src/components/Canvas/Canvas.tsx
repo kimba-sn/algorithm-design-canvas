@@ -52,23 +52,34 @@ export const Canvas = () => {
         setCurrentCanvasIndex(canvases.length);
     };
 
-    const deleteCanvas = (index: number) => {
-        setCanvases(prevCanvases => prevCanvases.filter((_, i) => i !== index));
-        if (currentCanvasIndex >= index && currentCanvasIndex > 0) {
-            setCurrentCanvasIndex(currentCanvasIndex - 1);
-        }
-    }
-
-    const editCanvas = (index: number, problemName: string, problemUrl: string) => {
+    const deleteCanvas = (id: number) => {
         setCanvases(prevCanvases => {
-            const updatedCanvases = [...prevCanvases]
-            updatedCanvases[index] = {
-                ...updatedCanvases[index],
-                problem_name: problemName,
-                problem_url: problemUrl
-            };
+            const updatedCanvases = prevCanvases.filter(canvas => canvas.id !== id);
+            if (updatedCanvases.length === 0) {
+                return [emptyCanvas];
+            }
+            if (currentCanvasIndex >= updatedCanvases.length) {
+                setCurrentCanvasIndex(updatedCanvases.length - 1);
+            }
             return updatedCanvases;
-        })
+        });
+    };
+
+    const editCanvas = (id: number, problemName: string, problemUrl: string) => {
+        console.log(`Editing canvas with id ${id} with name ${problemName} and URL ${problemUrl}`);
+        setCanvases(prevCanvases => {
+            const canvasIndex = prevCanvases.findIndex(canvas => canvas.id === id);
+            if (canvasIndex !== -1) {
+                const updatedCanvases = [...prevCanvases];
+                updatedCanvases[canvasIndex] = {
+                    ...updatedCanvases[canvasIndex],
+                    problem_name: problemName,
+                    problem_url: problemUrl
+                };
+                return updatedCanvases;
+            }
+            return prevCanvases;
+        });
     }
 
     const switchCanvas = (index: number) => {
@@ -87,7 +98,7 @@ export const Canvas = () => {
         <Flex h="100vh">
             <Sidebar
                 canvases={canvases}
-                currentCanvasIndex={currentCanvasIndex}
+                currentCanvasId={currentCanvasIndex}
                 addNewCanvas={addNewCanvas}
                 switchCanvas={switchCanvas}
                 deleteCanvas={deleteCanvas}

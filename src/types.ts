@@ -9,7 +9,7 @@ export interface Canvas {
 }
 
 export const emptyCanvas: Canvas = {
-    id: 0,
+    id: Date.now(),
     problem_name: '',
     problem_url: '',
     constraints: '',

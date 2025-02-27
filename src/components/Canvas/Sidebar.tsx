@@ -11,20 +11,20 @@ import { Canvas } from "../../types";
 
 interface SidebarProps {
     canvases: Canvas[];
-    currentCanvasIndex: number;
+    currentCanvasId: number;
     addNewCanvas: (problemName: string, problemUrl: string) => void;
-    switchCanvas: (index: number) => void;
-    deleteCanvas: (index: number) => void;
-    editCanvas: (index: number, problemName: string, problemUrl: string) => void;
+    switchCanvas: (id: number) => void;
+    deleteCanvas: (id: number) => void;
+    editCanvas: (id: number, problemName: string, problemUrl: string) => void;
 }
 
-export const Sidebar = ({ canvases, currentCanvasIndex, addNewCanvas, switchCanvas, deleteCanvas, editCanvas }: SidebarProps) => {
+export const Sidebar = ({ canvases, currentCanvasId: currentCanvasIndex, addNewCanvas, switchCanvas, deleteCanvas, editCanvas }: SidebarProps) => {
 
     return (
         <Flex direction="column" w="64" h="100vh" bg="gray.100" borderRightWidth="1px" borderColor="gray.200">
             {/* Header */}
             <Box px="4" py="2" borderWidth="1px" borderColor="gray.700">
-                <Center><Heading  color="gray.800">Canvases</Heading></Center>
+                <Center><Heading color="gray.800">Canvases</Heading></Center>
             </Box>
 
             {/* Add New Button */}

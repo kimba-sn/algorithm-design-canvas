@@ -54,7 +54,7 @@ const EditCanvas = ({ canvas, updateCanvas }: EditCanvasProps) => {
   return (
     <DialogRoot
       size={{ base: "xs", md: "md" }}
-      placement="center"
+      placement="top"
       open={isOpen}
       onOpenChange={({ open }) => setIsOpen(open)}
     >
@@ -68,7 +68,7 @@ const EditCanvas = ({ canvas, updateCanvas }: EditCanvasProps) => {
         <DialogHeader>
           <DialogTitle>Edit Canvas</DialogTitle>
         </DialogHeader>
-        <DialogBody>
+        <DialogBody pb="4">
           <Text mb={4}>Update the Canvas details below.</Text>
           <Stack gap={4}>
             <Field
@@ -106,13 +106,12 @@ const EditCanvas = ({ canvas, updateCanvas }: EditCanvasProps) => {
           <ButtonGroup>
             <DialogActionTrigger asChild>
               <Button
-                variant="subtle"
-                colorPalette="gray"
+                variant="outline"
               >
                 Cancel
               </Button>
             </DialogActionTrigger>
-            <Button variant="solid" type="submit" onClick={handleSubmit(onSubmit)}>
+            <Button onClick={handleSubmit(onSubmit)}>
               Save
             </Button>
           </ButtonGroup>
